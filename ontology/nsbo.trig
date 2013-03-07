@@ -1,0 +1,65 @@
+@prefix nao:     <http://www.semanticdesktop.org/ontologies/2007/08/15/nao#> .
+@prefix nfo:     <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
+@prefix nie:     <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#> .
+@prefix ncal:    <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#> .
+@prefix nco:     <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix pimo:    <http://www.semanticdesktop.org/ontologies/2007/11/01/pimo#> .
+@prefix nmo:     <http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#> .
+@prefix nmm:     <http://www.semanticdesktop.org/ontologies/2009/02/19/nmm#> .
+@prefix nrl:     <http://www.semanticdesktop.org/ontologies/2007/08/15/nrl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix nsbo:    <http://www.nepomuk.kde.org/ontologies/2011/03/06/nsbo#> .
+
+nsbo: {
+    nsbo:Subtitle
+        a rdfs:Class ;
+        rdfs:comment "One subtitle of a video file" ;
+        rdfs:label "Subtitle" ;
+        rdfs:subClassOf rdfs:Resource, nie:InformationElement .
+
+    nsbo:startTime 
+        a rdf:Property ;
+        rdfs:comment "The start time of the subtitle";
+        rdfs:label "startTime";
+        rdfs:domain nsbo:Subtitle ;
+        rdfs:range xsd:time ;
+        nrl:maxCardinality "1".
+
+    nsbo:endTime 
+        a rdf:Property ;
+        rdfs:comment "The end time of the subtitle";
+        rdfs:label "endTime";
+        rdfs:domain nsbo:Subtitle ;
+        rdfs:range xsd:time ;
+        nrl:maxCardinality "1" .
+
+    nsbo:subtitleFor 
+        a rdf:Property ;
+        rdfs:comment "Subtitles for a particular file/resource" ;
+        rdfs:label "subtitleFor" ;
+        rdfs:domain nsbo:Subtitle ;
+        rdfs:range nfo:Video .
+
+}
+
+<http://www.nepomuk.kde.org/ontologies/2011/03/06/nsbo_metadata#> {
+
+    nsbo: a nrl:Ontology ;
+    nao:creator <http://www.does-it-really-maater-/~vishesh> ;
+    nao:hasDefaultNamespace
+        "http://www.nepomuk.kde.org/ontologies/2011/03/06/nsbo#" ;
+    nao:hasDefaultNamespaceAbbreviation
+        "nsbo" ;
+    nao:lastModified "2011-03-06T17:45:58Z" ;
+    nao:status "Unstable" ;
+    nao:updatable "0 " ;
+    nao:version "Revision-1" .
+
+    <http://www.nepomuk.kde.org/ontologies/2011/03/06/nsbo_metadata#>
+          a       nrl:GraphMetadata ;
+          nrl:coreGraphMetadataFor
+                  nsbo: .
+}

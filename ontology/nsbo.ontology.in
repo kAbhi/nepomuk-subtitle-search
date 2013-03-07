@@ -1,0 +1,8 @@
+[Ontology]
+Version=1.0
+Name=Nepomuk Subtitle Ontology
+Comment=A rough ontology to be used for subtitles
+Namespace=http://www.nepomuk.kde.org/ontologies/2011/03/06/nsbo#
+Path=${ONTO_INSTALL_DIR}/nsbo.trig
+MimeType=application/x-trig
+Type=Data
