@@ -55,7 +55,7 @@ int main( int argc, char ** argv ) {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if( args->count() == 2 ) {
         QUrl videoFile( args->url(0) );
-        QUrl subtitleFile( args->url(1) );
+        QUrl subtitleFile = videoFile;
 
         //Nepomuk2::SubtitleLoader::eraseAllSubtitles();
 
@@ -64,7 +64,7 @@ int main( int argc, char ** argv ) {
         loader.load();
         //loader.erase();
     }
-    else if( args->count() == 1 ) {
+/*    else if( args->count() == 1 ) {
         kDebug() << "args count is one";
         QString mainFolder("/home/cr0m3t/win-c/Big.Bang.Theory/Season1/");
         QString mainSubtitleFolder( mainFolder );// + "subtitles/" );
@@ -79,12 +79,12 @@ int main( int argc, char ** argv ) {
             while( subDirIter.hasNext() ) {
                 QString file = subDirIter.next();
                 //kDebug() << file;
-/*
+
                 QString number = file.mid( 0, file.indexOf("_") );
                 number = number.mid( number.lastIndexOf("/") + 1 );
-*/
-                QString subtitleFile;
-/*                QStringList list = QDir( subtitleFolder ).entryList();
+
+                QString subtitleFile = file;
+                QStringList list = QDir( subtitleFolder ).entryList();
                 foreach( const QString & sub, list ) {
                     if( sub.contains("HDTV") && !sub.contains("720p") ) {
                         QString season( QString::number(i) + "x" );
@@ -99,8 +99,7 @@ int main( int argc, char ** argv ) {
                         }
                     }
                 }
-*/
-                subtitleFile = file;
+
                 kDebug() << "Video File : " << file;
                 kDebug() << "Subtitle File : " << subtitleFile;
 
@@ -110,7 +109,7 @@ int main( int argc, char ** argv ) {
             }
         }
     }
-
+*/
     // ----
     return 0;
 }
