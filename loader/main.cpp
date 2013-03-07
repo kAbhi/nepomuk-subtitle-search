@@ -66,12 +66,12 @@ int main( int argc, char ** argv ) {
     }
     else if( args->count() == 1 ) {
         kDebug() << "args count is one";
-        QString mainFolder("/home/vishesh/Videos/The Big Bang Theory/");
-        QString mainSubtitleFolder( mainFolder + "subtitles/" );
+        QString mainFolder("/home/cr0m3t/win-c/Big.Bang.Theory/Season1/");
+        QString mainSubtitleFolder( mainFolder );// + "subtitles/" );
 
-        for( int i=1;i<=4; i++ ) {
-            QString videoFolder( mainFolder + "Season " + QString::number(i) + "/" );
-            QString subtitleFolder( mainSubtitleFolder + QString::number(i) + "/" );
+        for( int i=1;i<=4; i++ ) { //Don't know how much to loop, so left it as it is.
+            QString videoFolder( mainFolder );//+ "Season " + QString::number(i) + "/" );
+            QString subtitleFolder( mainSubtitleFolder );//+ QString::number(i) + "/" );
             kDebug() << subtitleFolder;
 
             QStringList filters;
@@ -79,12 +79,12 @@ int main( int argc, char ** argv ) {
             while( subDirIter.hasNext() ) {
                 QString file = subDirIter.next();
                 //kDebug() << file;
-
+/*
                 QString number = file.mid( 0, file.indexOf("_") );
                 number = number.mid( number.lastIndexOf("/") + 1 );
-
+*/
                 QString subtitleFile;
-                QStringList list = QDir( subtitleFolder ).entryList();
+/*                QStringList list = QDir( subtitleFolder ).entryList();
                 foreach( const QString & sub, list ) {
                     if( sub.contains("HDTV") && !sub.contains("720p") ) {
                         QString season( QString::number(i) + "x" );
@@ -99,7 +99,8 @@ int main( int argc, char ** argv ) {
                         }
                     }
                 }
-
+*/
+                subtitleFile = file;
                 kDebug() << "Video File : " << file;
                 kDebug() << "Subtitle File : " << subtitleFile;
 
