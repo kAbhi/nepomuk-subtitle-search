@@ -64,52 +64,7 @@ int main( int argc, char ** argv ) {
         loader.load();
         //loader.erase();
     }
-/*    else if( args->count() == 1 ) {
-        kDebug() << "args count is one";
-        QString mainFolder("/home/cr0m3t/win-c/Big.Bang.Theory/Season1/");
-        QString mainSubtitleFolder( mainFolder );// + "subtitles/" );
 
-        for( int i=1;i<=4; i++ ) { //Don't know how much to loop, so left it as it is.
-            QString videoFolder( mainFolder );//+ "Season " + QString::number(i) + "/" );
-            QString subtitleFolder( mainSubtitleFolder );//+ QString::number(i) + "/" );
-            kDebug() << subtitleFolder;
-
-            QStringList filters;
-            QDirIterator subDirIter( videoFolder, filters, QDir::Files | QDir::NoDotAndDotDot, QDirIterator::NoIteratorFlags );
-            while( subDirIter.hasNext() ) {
-                QString file = subDirIter.next();
-                //kDebug() << file;
-
-                QString number = file.mid( 0, file.indexOf("_") );
-                number = number.mid( number.lastIndexOf("/") + 1 );
-
-                QString subtitleFile = file;
-                QStringList list = QDir( subtitleFolder ).entryList();
-                foreach( const QString & sub, list ) {
-                    if( sub.contains("HDTV") && !sub.contains("720p") ) {
-                        QString season( QString::number(i) + "x" );
-                        if( number.length() == 1 )
-                            season += "0" + number;
-                        else
-                            season += number;
-
-                        if( sub.contains( season ) ){
-                            subtitleFile = sub;
-                            break;
-                        }
-                    }
-                }
-
-                kDebug() << "Video File : " << file;
-                kDebug() << "Subtitle File : " << subtitleFile;
-
-                Nepomuk2::SubtitleLoader loader( file, subtitleFolder + subtitleFile );
-                loader.erase();
-                loader.load();
-            }
-        }
-    }
-*/
     // ----
     return 0;
 }
